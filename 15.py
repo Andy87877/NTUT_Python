@@ -1,18 +1,15 @@
 def Round_BMI(BMI):
-    # 四捨六入伍看偶數
+    # 四捨六入五看偶數
     BMI *= 1000
     if (BMI%10 == 5):
-        if(((BMI%100)-5)%2 == 1):
-            BMI += 10
+        tmp = (BMI%100 - 5)/10
+        if (tmp%2 == 1):
+            BMI += 5
         else:
-            BMI -= 10
-    elif (BMI%10 > 5):
-        BMI += 10
-    else:
-        BMI -= 10
-    BMI //= 10
-    BMI /= 100
+            BMI -= 5
+    BMI /= 1000
 
+    BMI = round(BMI, 2)
     return BMI
 
 def ans_print(List):
@@ -21,30 +18,27 @@ def ans_print(List):
 
     MAX = List[-1]
     MIN = List[0]
+
     Median = 0
-
     n = len(List)
-
     if (n%2 == 1):
-        Median = List[n/2]
+        Median = List[n//2]
     else:
-        # print(n/2)
         Median = (List[int(n/2)] + List[int(n/2)-1])/2
-        print(Median)
         Median = Round_BMI(Median)
 
-    # dic = {}
-    # for i in range(len(List)):
-    #     dic[List[i]] += 1
-    # print(dic)
-
-
-    print(MAX)
-    print(MIN)
-    print(Median)
-
-    # for i in range(n):
-    #     print(List[i])
+    count_mx = 0
+    most_count_num = 0
+    for i in range(n):
+        if (count_mx < List.count(List[i])):
+            count_mx = List.count(List[i])
+            most_count_num = List[i]
+            
+    print("%.2f"%(MAX))
+    print("%.2f"%(MIN))
+    print("%.2f"%(Median))
+    print("%.2f"%(most_count_num))
+    
 
 
 def get_BMI():
