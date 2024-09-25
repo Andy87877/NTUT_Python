@@ -19,13 +19,32 @@ def C2(N):
         print()
 
 def C3(N):
-    N = 1
+    for i in range(N//2+1):
+        for j in range(N//2-i):
+            print(" ",end="")
+        for j in range(i*2+1):
+            print("*",end = "")
+        for j in range(N//2-i):
+            print(" ",end="")
+        print()
+
+    for i in range(N//2-1, -1, -1):
+        for j in range(N//2-i):
+            print(" ",end="")
+        for j in range(i*2+1):
+            print("*",end = "")
+        for j in range(N//2-i):
+            print(" ",end="")
+        print()
+
+def C4(N):
+    
 
 def main():
     C = int(input())
     N = int(input())
 
-    if (N%2 == 0):
+    if (N%2 == 0 or N >= 51 or N <= 2):
         print("error")
     elif (C == 1):
         C1(N)
@@ -33,5 +52,9 @@ def main():
         C2(N)
     elif (C == 3):
         C3(N)
+    elif (C == 4):
+        C4(N)
+    else:
+        print("error")
 
 main()
