@@ -4,9 +4,22 @@ END = False
 
 def init(): # 初始化
     for i in range(5):
-        temp = [['0','0']]*12
+        temp = []
+        for j in range(12):
+            temp.append([])
         Timetable.append(temp)
+
+        temp = []
+        for j in range(12):
+            if (j >= 9):
+                str_tmp = str(i+1)
+                str_tmp += chr(j-9 + ord('a'))
+            else:
+                str_tmp = str(i+1)+str(j+1)
+            temp.append(str_tmp)
         Timetable_name.append(temp)
+
+    # print(Timetable)
 
     # for i in range(len(Timetable)):
     #     for j in range(len(Timetable[i])):
@@ -18,11 +31,13 @@ def input_data():
     name = input()
     H = int(input())
 
+    
+
     if (H > 3 or H < 1): 
         Bug = True
-
-    for ttttttttt in range(H):
+    for tttttttttttttttttttttttttttttttttttt in range(H):
         time_class = input()
+
         if (len(time_class) != 2):
             Bug = True
             continue
@@ -45,50 +60,54 @@ def input_data():
 
         Week = int(Week)
 
-        print(Week-1, Section_num, end = " ....... \n")
-        Temp_List = (Timetable[Week-1][Section_num])
-        # print(Temp_List)
+        Temp_List = list(Timetable[Week-1][Section_num])
+        # print(Temp_List, name, end = "  wwwwww\n")
         Temp_List.append(name)
         Timetable[Week-1][Section_num] = Temp_List
-        # print(Timetable[Week-1][Section_num])
+        # print(Temp_List, name, end = "  .........\n")
 
-        if (len(Timetable[Week-1][Section_num]) == 2):
-            Timetable_name[Week-1][Section_num] = time_class
-    # print("hiii")
+        # Timetable_name[Week-1][Section_num] = time_class
 
-
+        # print(Week-1, Section_num)
+        # print_table()
     
+
+
     return Bug
     
 def print_coiilade(List, name):
     n = len(List)
 
-    for i in range(2,n):
+    for i in range(n):
         for j in range(i+1, n):
-            print()
-            # print("%s,%s,%s" %(List[i], List[j], name))
+            print("%s,%s,%s" %(List[i], List[j], name))
+
+
 
 def check():
     for i in range(5): # Week
         for j in range(12): # Section
-            if (len(Timetable[i][j]) >= 4):
+            if (len(Timetable[i][j]) >= 2):
                 print_coiilade(Timetable[i][j], Timetable_name[i][j])
                 
-
+def print_table():
+    # print(Timetable)
+    for i in range(len(Timetable)):
+        for j in range(len(Timetable[i])):
+            print(Timetable[i][j], end = " ")
+        print(";")
+    print("=======================")
 
 def main():
     END = False
     init() # 初始化
 
-    N = int(input())
-    for i in range(N):
+    TIMESSSSSS = int(input())
+    for tttttttttttttttttttt in range(TIMESSSSSS):
         Bug = input_data()
         END = (Bug or END)
 
-    for i in range(len(Timetable)):
-        for j in range(len(Timetable[i])):
-            print(Timetable[i][j], end = " ")
-        print("=======")
+    # print_table()
 
     if (END):
         print(-1)

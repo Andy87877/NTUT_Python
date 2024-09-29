@@ -1,14 +1,4 @@
-a = []
+face_stand = ['A', '2','3','4','5','6','7','8','9','10','J','Q','K']
 
-n = 10
-
-for i in range(n):
-    tmp = ["中文 "]*n
-    # for j in range(n):
-    #     tmp.append(abs(i-j))
-    a.append(tmp)
-
-for i in range(len(a)):
-    for j in range(len(a[i])):
-        print(a[i][j], end = " ")
-    print()
+List = sorted(face_stand)
+print(List)
