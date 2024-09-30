@@ -1,4 +1,12 @@
-face_stand = ['A', '2','3','4','5','6','7','8','9','10','J','Q','K']
+def divide(num):
+    try:
+        10/num
+    except ZeroDivisionError:
+        print("hahahaa")
+    else:
+        print("GOOD")
+    finally:
+        print("finally")
 
-List = sorted(face_stand)
-print(List)
+num = 0
+divide(num)
