@@ -2,6 +2,12 @@ Card = []
 Card_face = []
 Card_color = []
 
+Name_List = []
+Card_List = []
+Card_ALL = []
+Ans_Card = []
+
+
 # main (ans = Ans_check_number)
 def Ans_check_number(Card_face, Card_color):
     n = len(Card_face)
@@ -146,24 +152,58 @@ def check_Duplicate(Card):
     for i in range(len(Card)):
         for j in range(i+1,len(Card)):
             if (Card[i] == Card[j]):
+                # print(Card[i])
                 Duplicate = True
     
     return Duplicate
 
+# 卡牌大小 
+def check_and_sort(index):
+    ERROR, Card_face, Card_color = classificate(Card_List[index])
+    tmp_check_number = Ans_check_number(Card_face, Card_color)
+    Ans_Card.append(tmp_check_number)
+
+def print_sort_result(Name_List, Ans_Card):
+    for i in range(len(Name_List)):
+        for j in range(i+1,len(Name_List)):
+            if (Ans_Card[i] < Ans_Card[j]):
+                Ans_Card[i], Ans_Card[j] = Ans_Card[j], Ans_Card[i]
+                Name_List[i], Name_List[j] = Name_List[j], Name_List[i]
+    
+    for i in range(len(Name_List)):
+        print(Name_List[i], Ans_Card[i])
+
 # 主程式
 def main():
+    TRUE_ERROR = False
+
     N = int(input())
-    Card = list(input().split())
-    ERROR, Card_face, Card_color = classificate(Card)
-    Duplicate = check_Duplicate(Card)
+    for iiiiiii in range(N):
+        Card_tmp_List = list(input().split())
+
+        Name_List.append(Card_tmp_List[0])
+        Card_List.append(Card_tmp_List[1:])
+
+        # print(Card_List)
+        for Card_List_index in range(1,len(Card_tmp_List)):
+            Card_ALL.append(Card_tmp_List[Card_List_index])
+        # print(Card_ALL)
+
+        ERROR, Card_face, Card_color = classificate(Card_List[iiiiiii])
+        TRUE_ERROR = TRUE_ERROR or ERROR
+    # print(Card_ALL)
+    Duplicate = check_Duplicate(Card_ALL)
 
     # print(ERROR, Card_face, Card_color)
-    if (ERROR):
+    if (TRUE_ERROR):
         print("Error input")
     elif (Duplicate):
         print("Duplicate deal")
     else:
-        ans = Ans_check_number(Card_face, Card_color)
-        print(ans)
+        for i in range(N):
+            check_and_sort(i)
+        print_sort_result(Name_List, Ans_Card)
+
+        
 
 main()
