@@ -1,3 +1,4 @@
+import math
 def compute_money(number, origal_money, discount1, discount2, discount3):
     money = origal_money
     if (number <= 10):
@@ -8,6 +9,9 @@ def compute_money(number, origal_money, discount1, discount2, discount3):
         money = origal_money*number*(discount2*0.01)
     else:
         money = origal_money*number*(discount3*0.01)
+    
+    money = round(money, 2)
+    money = math.ceil(money)
     return money
 
 def compare_print(A, B, C):
@@ -26,6 +30,9 @@ def compare_print(A, B, C):
             print("C,%d" %(C))
             C = -1
 
+    total_num = sum(List)
+    print("%d"%(total_num))
+
 
 A_discount = [0,0,0]
 B_discount = [0,0,0]
@@ -41,6 +48,6 @@ z, C_discount[0], C_discount[1], C_discount[2] = map(int, input().split(","))
 
 A_money = compute_money(x, 380, A_discount[0], A_discount[1], A_discount[2])
 B_money = compute_money(y, 1200, B_discount[0], B_discount[1], B_discount[2])
-C_money = compute_money(y, 180, C_discount[0], C_discount[1], C_discount[2])
+C_money = compute_money(z, 180, C_discount[0], C_discount[1], C_discount[2])
 
 compare_print(A_money, B_money, C_money)
