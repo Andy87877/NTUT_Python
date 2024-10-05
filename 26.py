@@ -29,6 +29,8 @@ for times in range(2,m+1):
     if (total_number+new_number >= limit_number):
         if (total_number <= limit_number):
             new_number = limit_number-total_number
+        else:
+            new_number = 0
 
     new_number = int(round(new_number, 0))
     total_number += new_number
