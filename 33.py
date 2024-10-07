@@ -43,7 +43,6 @@ def main():
     Sort_distance_list = sorted(Distance_List)
 
 
-
     print_answer(Sort_distance_list, Drone_name, Drone_XYZ)
 
 main()

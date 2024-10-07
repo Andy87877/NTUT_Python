@@ -1,3 +1,6 @@
-s1 = "Andy"
-s2 = s1.upper()
-print(s2)
+List = [1,2,3,4,5,6,7,8,9,10]
+print(List)
+
+
+List = List[::-2]
+print(List)

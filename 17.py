@@ -59,7 +59,5 @@ def main():
         CORRECT = judge_hit(N)
         if (CORRECT):
             print("correct")
-            
     
-
 main()
