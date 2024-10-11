@@ -1,6 +1,6 @@
-List = [1,2,3,4,5,6,7,8,9,10]
-print(List)
+tuple1 = ("a", "b", "c")
+list1 = [1,2,3]
 
+idk = tuple1 + list1
 
-List = List[::-2]
-print(List)
+print(idk)
