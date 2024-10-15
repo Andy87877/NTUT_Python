@@ -1,62 +1,50 @@
+def print_char(chr, n):
+    for i in range(n):
+        print(chr, end="")
+
+# 正三角形
 def C1(N):
     for i in range(1,N+1):
-        for j in range(N-i):
-            print("#",end = "")
-        for j in range(i*2-1):
-            print("*",end = "")
-        for j in range(N-i):
-            print("#",end = "")
+        print_char("#", N-i)
+        print_char("*", i*2-1)
+        print_char("#", N-i)
         print()
 
+# 倒三角形
 def C2(N):
     for i in range(1,N+1):
-        for j in range(i-1):
-            print("#",end = "")
-        for j in range((N-i+1)*2-1):
-            print("*",end = "")
-        for j in range(i-1):
-            print("#",end = "")
+        print_char("#", i-1)
+        print_char("*", (N-i+1)*2-1)
+        print_char("#", i-1)
         print()
 
+# 菱形
 def C3(N):
     for i in range(N//2+1):
-        for j in range(N//2-i):
-            print(" ",end = "")
-        for j in range(i*2+1):
-            print("*",end = "")
-        for j in range(N//2-i):
-            print(" ",end = "")
+        print_char(" ", N//2-i)
+        print_char("*", i*2+1)
+        print_char(" ", N//2-i)
         print()
 
     for i in range(N//2-1, -1, -1):
-        for j in range(N//2-i):
-            print(" ",end = "")
-        for j in range(i*2+1):
-            print("*",end = "")
-        for j in range(N//2-i):
-            print(" ",end = "")
+        print_char(" ", N//2-i)
+        print_char("*", i*2+1)
+        print_char(" ", N//2-i)
         print()
 
+# 魚形
 def C4(N):
     for i in range(N//2+1):
-        for j in range(N//2-i):
-            print(" ",end = "")
-        for j in range(i*2+1):
-            print("*",end = "")
-        for j in range((N//2-i)*2):
-            print(" ",end = "")
-        for j in range(i):
-            print("-",end = "")
+        print_char(" ", N//2-i)
+        print_char("*", i*2+1)
+        print_char(" ", (N//2-i)*2)
+        print_char("-", i)
         print()
     for i in range(N//2-1,-1,-1):
-        for j in range(N//2-i):
-            print(" ",end = "")
-        for j in range(i*2+1):
-            print("*",end = "")
-        for j in range((N//2-i)*2):
-            print(" ",end = "")
-        for j in range(i):
-            print("-",end = "")
+        print_char(" ", N//2-i)
+        print_char("*", i*2+1)
+        print_char(" ", (N//2-i)*2)
+        print_char("-", i)
         print()
 
 def main():

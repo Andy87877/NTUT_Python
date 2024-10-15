@@ -1,6 +1,7 @@
 School_name = []
 School_type = {}
 
+# 輸入資料
 def input_data():
     tmp_list = list(input().split())
     name = tmp_list[0]
@@ -14,6 +15,7 @@ def b0_full_condition(str_condition):
     Condition = list(str_condition.split())
     ans_school = []
 
+    # check all school
     for i in range(len(School_name)):
         name = School_name[i]
         OK = False
@@ -46,6 +48,7 @@ def b1_some_condition(str_condition):
     ans_school = []
     max_match_count = -1
 
+    # check all school
     for i in range(len(School_name)):
         name = School_name[i]
         tmp_match_count = 0

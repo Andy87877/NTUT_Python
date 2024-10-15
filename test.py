@@ -1,11 +1,16 @@
-def forOps(m,n):
-    sum = 0
-    multi = 1
-    for index in range(m, n+1, 2):
-        sum += index
-        multi *= index
-        print(index, end = ", ")
-    print("\n相加總合", sum)
-    print("\n相乘總和", multi)
+def myPrint(n, mark):
+    for i in range(n):
+        print(mark, end = "")
 
-forOps(6, 12)
+def main():
+    n = int(input())
+    for i in range(n):
+        # myPrint(n-i-1,".")
+        # myPrint(i+1,"*")
+        
+        myPrint(i, ".")
+        myPrint(n-i, "*")
+        
+        print()
+
+main()
