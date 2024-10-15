@@ -15,9 +15,8 @@ def Round_BMI(BMI):
 def ans_print(List):
     # sort
     List = sorted(List) 
-
-    MAX = List[-1]
-    MIN = List[0]
+    MAX = (List[-1])
+    MIN = (List[0])
 
     Median = 0
     n = len(List)
@@ -25,7 +24,8 @@ def ans_print(List):
         Median = List[n//2]
     else:
         Median = (List[int(n/2)] + List[int(n/2)-1])/2
-        Median = Round_BMI(Median)
+        Median = int((Median)*100)
+        Median /= 100
 
     count_mx = 0
     most_count_num = 0
