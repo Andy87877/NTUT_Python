@@ -1,4 +1,3 @@
-
 # 字串長度
 def check_sentences_length(Sentences):
     List = list(Sentences.split(" "))
@@ -9,29 +8,32 @@ def check_sentences_length(Sentences):
 
     return length
 
+
 # 替換文字
 def Sentences_replace(Sentences, X_word, Y_word):
     List = list(Sentences.split(" "))
     Ans_sentences = ""
 
-    for i in range(len(List)-1):
-        if ((List[i].upper()) == (X_word.upper())):
+    for i in range(len(List) - 1):
+        if (List[i].upper()) == (X_word.upper()):
             List[i] = Y_word
         Ans_sentences += List[i]
         Ans_sentences += " "
 
-    if ((List[-1].upper()) == (X_word.upper())):
+    if (List[-1].upper()) == (X_word.upper()):
         List[-1] = Y_word
     Ans_sentences += List[-1]
 
     return Ans_sentences
 
+
 # 反轉文字
 def Word_reverse(Word):
     ans_word = ""
-    for i in range(len(Word)-1, -1, -1):
+    for i in range(len(Word) - 1, -1, -1):
         ans_word += Word[i]
     return ans_word
+
 
 # 隔著輸出
 def Diff_print(Diff, Sentences):
@@ -39,6 +41,7 @@ def Diff_print(Diff, Sentences):
     for i in range(0, len(Sentences), Diff):
         Sentences_ans += Sentences[i]
     return Sentences_ans
+
 
 def main():
     A_sentences = input()
@@ -65,5 +68,6 @@ def main():
     print(C_length, D_length)
     print(D2_sentences)
     print(final_sentences)
+
 
 main()
