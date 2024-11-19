@@ -1,4 +1,3 @@
-
 # page 14
 
 with open("passwd.txt") as f1:
