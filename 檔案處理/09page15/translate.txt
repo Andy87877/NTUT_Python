@@ -1,0 +1,2 @@
+cat dog tiger
+貓  狗  老虎
