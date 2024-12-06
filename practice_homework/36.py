@@ -51,18 +51,9 @@ def walk_round(From_tribe, To_tribe):
     return shortest_route
 
 
-def main():
-    # 路徑個數N，起點部落X和終點部落Z
-    N, start_tribe, end_tribe = map(int, input().split())
+# 走每個休息部落 找到最短的路徑
+def find_min_route(N, start_tribe, end_tribe, rest_tribe):
 
-    # 休息點的部落
-    rest_tribe = map(int, input().split())
-
-    # 輸入部落連接的方式
-    for i in range(N):
-        input_tribe_map()
-
-    # 走每個休息部落 找到最短的路徑
     route_length_min = N * 100
     find_rest_tribe = -1
     answer_route = []
@@ -87,9 +78,27 @@ def main():
             for i in route_Rest_to_End:
                 answer_route.append(i)
 
-    if len(answer_route) != 0:
-        print(find_rest_tribe)
-        for tribe in answer_route:
+    return find_rest_tribe, answer_route
+
+
+def main():
+    # 路徑個數N，起點部落X和終點部落Z
+    N, start_tribe, end_tribe = map(int, input().split())
+
+    # 休息點的部落
+    rest_tribe = map(int, input().split())
+
+    # 輸入部落連接的方式
+    for i in range(N):
+        input_tribe_map()
+
+    # 走每個休息部落 找到最短的路徑
+    Answer_route = []
+    Rest_tribe, Answer_route = find_min_route(N, start_tribe, end_tribe, rest_tribe)
+
+    if len(Answer_route) != 0:
+        print(Rest_tribe)
+        for tribe in Answer_route:
             print(tribe, end=" ")
     else:
         print("NO")
